@@ -1,3 +1,5 @@
+import Input from "@/components/Input";
+
 const Auth = () => {
     return ( 
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -11,7 +13,7 @@ const Auth = () => {
                             Sign in
                         </h2>
                         <div className="flex flex-col gap-4">
-                            
+                            <Input />
                         </div>
                     </div>
 
