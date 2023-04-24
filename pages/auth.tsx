@@ -1,10 +1,11 @@
 import Input from "@/components/Input";
+import axios from "axios";
 import { useCallback, useState } from "react";
 
 const Auth = () => {
 
     const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
+    const [name, setname] = useState("");
     const [password, setPassword] = useState("");
 
     const [variant, setVariant] = useState("login");
@@ -13,8 +14,16 @@ const Auth = () => {
         setVariant((currentVariant) => (currentVariant === "login" ? "register" : "login"));
     }, []);
 
-    const register = useCallback(() => {
-        
+    const register = useCallback(async () => {
+        try {
+            await axios.post("/api/register", {
+                email,
+                name,
+                password,
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }, []);
 
     return ( 
@@ -31,11 +40,11 @@ const Auth = () => {
                         <div className="flex flex-col gap-4">
                             {variant === "register" && (
                             <Input 
-                                label="Username"
-                                onChange={(ev: any) => setUsername(ev.target.value)}
-                                id="username"
+                                label="name"
+                                onChange={(ev: any) => setname(ev.target.value)}
+                                id="name"
                                 type="text"
-                                value={username}
+                                value={name}
                             />
                             )}
                             <Input 
