@@ -24,7 +24,7 @@ const Auth = () => {
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [email, name, password]);
 
     return ( 
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -40,10 +40,9 @@ const Auth = () => {
                         <div className="flex flex-col gap-4">
                             {variant === "register" && (
                             <Input 
-                                label="name"
+                                label="Username"
                                 onChange={(ev: any) => setname(ev.target.value)}
                                 id="name"
-                                type="text"
                                 value={name}
                             />
                             )}
@@ -62,7 +61,7 @@ const Auth = () => {
                                 value={password}
                             />
                         </div>
-                        <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                        <button onClick={register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                             {variant === "login" ? "Sign in" : "Sign up"}
                         </button>
                         <p className="text-neutral-500 mt-12">
