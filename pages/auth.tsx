@@ -107,6 +107,7 @@ const Auth = () => {
                                 <FcGoogle size={30} />
                             </div>
                             <div
+                                onClick={() => signIn('github', { callbackUrl: '/' })}
                                 className="
                                     w-110
                                     h-10
